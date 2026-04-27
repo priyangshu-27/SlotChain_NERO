@@ -1,0 +1,68 @@
+/* SlotChain — Global base styles */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+  background: #0a0a0f;
+  color: #f0eeff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Keyframes ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(124,106,247,0.25); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(124,106,247,0.4); }
+
+/* ── Input focus ring ── */
+input:focus {
+  outline: none;
+  border-color: #7c6af7 !important;
+  box-shadow: 0 0 0 3px rgba(124,106,247,0.15);
+}
+
+/* ── Button hover lifts ── */
+button:not(:disabled):hover {
+  filter: brightness(1.08);
+}
+
+/* ── Responsive: collapse sidebar on small screens ── */
+@media (max-width: 700px) {
+  /* sidebar becomes a top bar */
+  .app-shell aside {
+    width: 100% !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    padding: 1rem !important;
+    gap: 0.75rem !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+  }
+}
